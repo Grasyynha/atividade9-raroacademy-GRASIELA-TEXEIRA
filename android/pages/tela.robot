@@ -55,8 +55,7 @@ ${BOTÃO_NOVO_EMPRESTIMO}    xpath=//android.widget.Button[@content-desc="NOVO E
 
 Verificar Atalhos no Carrossel
     
-    # Passo 1: Abrir o aplicativo e garantir que está na homepage
-    Open Application    ${APPIUM:APP}    com.ricardodalarme.nubank_clone
+   
     Wait Until Element Is Visible    ${BOTAO_PIX}    timeout=30s
     
     # Passo 2: Verificar a presença de todos os botões do carrossel
