@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20240528 21:02:36.407" rpa="false" schemaversion="4">
+<suite id="s1" name="atividade9-raroacademy-GRASIELA-TEXEIRA" source="C:\Users\Grasy\Documents\RARO ACADEMY\ATV9\atividade9-raroacademy-GRASIELA-TEXEIRA">
+<suite id="s1-s1" name="Android" source="C:\Users\Grasy\Documents\RARO ACADEMY\ATV9\atividade9-raroacademy-GRASIELA-TEXEIRA\android">
+<suite id="s1-s1-s1" name="Features" source="C:\Users\Grasy\Documents\RARO ACADEMY\ATV9\atividade9-raroacademy-GRASIELA-TEXEIRA\android\features">
+<suite id="s1-s1-s1-s1" name="telaPrincipal" source="C:\Users\Grasy\Documents\RARO ACADEMY\ATV9\atividade9-raroacademy-GRASIELA-TEXEIRA\android\features\telaPrincipal.robot">
+<test id="s1-s1-s1-s1-t1" name="CT007 - O usuário deve conseguir interagir com a seção de depositar" line="42">
+<kw name="Abrir App" library="config" type="SETUP">
+<kw name="Open Application">
+<arg>http://127.0.0.1:4723</arg>
+<arg>automationName=${ANDROID_AUTOMATION_NAME}</arg>
+<arg>platformName=${ANDROID_PLATFORM_NAME}</arg>
+<arg>platformVersion=${ANDROID_PLATFORM_VERSION}</arg>
+<arg>appPackage=${APP_PACKAGE}</arg>
+<arg>appActivity=${APP_ACTIVITY}</arg>
+<msg timestamp="20240528 21:02:36.479" level="FAIL">No keyword with name 'Open Application' found.</msg>
+<status status="FAIL" starttime="20240528 21:02:36.478" endtime="20240528 21:02:36.480"/>
+</kw>
+<status status="FAIL" starttime="20240528 21:02:36.475" endtime="20240528 21:02:36.484"/>
+</kw>
+<kw name="Teardown" library="config" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<kw name="Capture Page Screenshot">
+<msg timestamp="20240528 21:02:36.487" level="FAIL">No keyword with name 'Capture Page Screenshot' found.</msg>
+<status status="FAIL" starttime="20240528 21:02:36.486" endtime="20240528 21:02:36.487"/>
+</kw>
+<status status="FAIL" starttime="20240528 21:02:36.485" endtime="20240528 21:02:36.488"/>
+</kw>
+<kw name="Close All Applications">
+<msg timestamp="20240528 21:02:36.492" level="FAIL">No keyword with name 'Close All Applications' found.</msg>
+<status status="FAIL" starttime="20240528 21:02:36.490" endtime="20240528 21:02:36.492"/>
+</kw>
+<status status="FAIL" starttime="20240528 21:02:36.484" endtime="20240528 21:02:36.493">Several failures occurred:
+
+1) No keyword with name 'Capture Page Screenshot' found.
+
+2) No keyword with name 'Close All Applications' found.</status>
+</kw>
+<status status="FAIL" starttime="20240528 21:02:36.473" endtime="20240528 21:02:36.495">Setup failed:
+No keyword with name 'Open Application' found.
+
+Also teardown failed:
+Several failures occurred:
+
+1) No keyword with name 'Capture Page Screenshot' found.
+
+2) No keyword with name 'Close All Applications' found.</status>
+</test>
+<status status="FAIL" starttime="20240528 21:02:36.460" endtime="20240528 21:02:36.498"/>
+</suite>
+<status status="FAIL" starttime="20240528 21:02:36.456" endtime="20240528 21:02:36.501"/>
+</suite>
+<status status="FAIL" starttime="20240528 21:02:36.452" endtime="20240528 21:02:36.503"/>
+</suite>
+<status status="FAIL" starttime="20240528 21:02:36.410" endtime="20240528 21:02:36.505"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="atividade9-raroacademy-GRASIELA-TEXEIRA">atividade9-raroacademy-GRASIELA-TEXEIRA</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Android">atividade9-raroacademy-GRASIELA-TEXEIRA.Android</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="Features">atividade9-raroacademy-GRASIELA-TEXEIRA.Android.Features</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="telaPrincipal">atividade9-raroacademy-GRASIELA-TEXEIRA.Android.Features.telaPrincipal</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240528 21:02:36.467" level="ERROR">Error in file 'C:\Users\Grasy\Documents\RARO ACADEMY\ATV9\atividade9-raroacademy-GRASIELA-TEXEIRA\android\utils\config.robot' on line 3: Resource file '..\..\base.robot' does not exist.</msg>
+</errors>
+</robot>

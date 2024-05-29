@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20240528 20:26:08.507" rpa="false" schemaversion="4">
+<suite id="s1" name="telaPrincipal" source="c:\Users\Grasy\Documents\RARO ACADEMY\ATV9\atividade9-raroacademy-GRASIELA-TEXEIRA\android\features\telaPrincipal.robot">
+<test id="s1-t1" name="CT004 - Usuário deve conseguir interagir a seção de pix" line="26">
+<kw name="Abrir App" library="config" type="SETUP">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://127.0.0.1:4723</arg>
+<arg>automationName=${ANDROID_AUTOMATION_NAME}</arg>
+<arg>platformName=${ANDROID_PLATFORM_NAME}</arg>
+<arg>AppiumUdid=${APPIUM:UDID}</arg>
+<arg>app=${APPIUM:APP}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<msg timestamp="20240528 20:26:10.274" level="FAIL">Resolving variable '${APPIUM:UDID}' failed: Variable '${APPIUM}' not found.</msg>
+<status status="FAIL" starttime="20240528 20:26:10.271" endtime="20240528 20:26:10.281"/>
+</kw>
+<status status="FAIL" starttime="20240528 20:26:10.270" endtime="20240528 20:26:10.282"/>
+</kw>
+<kw name="Teardown" library="config" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20240528 20:26:10.289" level="FAIL">No application is open</msg>
+<status status="FAIL" starttime="20240528 20:26:10.288" endtime="20240528 20:26:10.305"/>
+</kw>
+<msg timestamp="20240528 20:26:10.312" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg timestamp="20240528 20:26:10.319" level="FAIL">No application is open</msg>
+<status status="FAIL" starttime="20240528 20:26:10.287" endtime="20240528 20:26:10.332"/>
+</kw>
+<status status="FAIL" starttime="20240528 20:26:10.286" endtime="20240528 20:26:10.334"/>
+</kw>
+<kw name="Close All Applications" library="AppiumLibrary">
+<doc>Closes all open applications.</doc>
+<status status="PASS" starttime="20240528 20:26:10.335" endtime="20240528 20:26:10.352"/>
+</kw>
+<status status="FAIL" starttime="20240528 20:26:10.284" endtime="20240528 20:26:10.355">No application is open</status>
+</kw>
+<status status="FAIL" starttime="20240528 20:26:10.267" endtime="20240528 20:26:10.356">Setup failed:
+Resolving variable '${APPIUM:UDID}' failed: Variable '${APPIUM}' not found.
+
+Also teardown failed:
+No application is open</status>
+</test>
+<status status="FAIL" starttime="20240528 20:26:08.529" endtime="20240528 20:26:10.364"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="telaPrincipal">telaPrincipal</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240528 20:26:10.259" level="ERROR">Error in file 'c:\Users\Grasy\Documents\RARO ACADEMY\ATV9\atividade9-raroacademy-GRASIELA-TEXEIRA\android\base.robot' on line 7: Resource file 'android\page\.robot' does not exist.</msg>
+<msg timestamp="20240528 20:26:10.312" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+</errors>
+</robot>

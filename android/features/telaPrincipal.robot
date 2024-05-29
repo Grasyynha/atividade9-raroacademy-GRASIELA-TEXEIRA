@@ -1,73 +1,90 @@
 *** Settings ***
-Library         AppiumLibrary
-Suite Setup     Open Application
-Suite Teardown  Close Application
+Resource    ../utils/config.robot
 
-*** Variables ***
-${PLATFORM}              Android      # Ou iOS, dependendo do seu ambiente
-${DEVICE_NAME}           emulator-5554
-${APP}                   path/to/your/app.apk  # Caminho para o aplicativo a ser testado
-${URL}                   http://localhost:4723/wd/hub
-${CAROUSEL}              id=com.example:id/carousel  # ID do carrossel
-${NEXT_BUTTON}           id=com.example:id/next_button
-${PREV_BUTTON}           id=com.example:id/prev_button
-${ITEM}                  id=com.example:id/carousel_item
-${ITEM_ACTION_BUTTON}    id=com.example:id/action_button
+Test Setup        Abrir App
+Test Teardown     Teardown
 
-*** Keywords ***
-Open Application
-    Open Application    ${URL}    platformName=${PLATFORM}    deviceName=${DEVICE_NAME}    app=${APP}
+*** Test Cases***
 
-Verify Carousel Item Visibility
-    [Arguments]    ${item_id}
-    Wait Until Element Is Visible    ${item_id}    10 seconds
-    Element Should Be Visible    ${item_id}
+Validar a tela de CARROSSEL e seus botões
 
-Click Carousel Item And Verify Navigation
-    [Arguments]    ${item_id}    ${expected_page_id}
-    Click Element    ${item_id}
-    Wait Until Element Is Visible    ${expected_page_id}    10 seconds
-    Element Should Be Visible    ${expected_page_id}
-    Go Back
+CT001 - Usuario esta na homepage
+    Dado que o usuário está na homepage
+    Quando o usuário visualiza o menu carrossel
+    Então o usuário verifica se todos os atalhos estão presentes e funcionando corretamente
 
-Test Carousel Navigation Buttons
-    Click Element    ${NEXT_BUTTON}
-    Click Element    ${PREV_BUTTON}
+CT002 - Validar saldo e histórico da conta
+    Dado que o usuário está na tela de conta
+    Quando o usuário verifica o saldo e histórico
+    Então o usuário verifica se os botões disponíveis estão corretos    
 
-Test Carousel Responsiveness
-    [Arguments]    ${device_name}    ${platform_name}    ${app}
-    Open Application    ${URL}    platformName=${platform_name}    deviceName=${device_name}    app=${app}
-    Run Keyword And Ignore Error    Verify Carousel Item Visibility    ${CAROUSEL}
-    Close Application
+CT003 - Verificar se o histórico de transações é exibido corretamente e está atualizado.
+    Dado que estou logado na minha conta bancária
+    Quando eu navego para a página de histórico de transações
+    Então meu histórico de transações deve ser exibido corretamente na tela    
 
-Verify Carousel Item Action Button
-    [Arguments]    ${item_id}    ${action_button_id}
-    Wait Until Element Is Visible    ${item_id}    10 seconds
-    Click Element    ${action_button_id}
-    # Verifique o comportamento esperado após o clique no botão de ação
-    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${ITEM_ACTION_BUTTON}    10 seconds
+CT004 - Usuário deve conseguir interagir a seção de pix
+    Dado que acessei o aplicativo Nubank Clone
+    Quando aperto o botão Pix 
+    Então tenho acesso às suas funcionalidades
 
-*** Test Cases ***
-CT01: Verificar se todos os atalhos do carrossel estão visíveis na homepage
-    ${items}=    Get Webelements    ${ITEM}
-    :FOR    ${item}    IN    @{items}
-    \    Verify Carousel Item Visibility    ${item}
+CT005 - O Usuario deve conseguir interagir com a seção de pagar boletos
+    Dado que acessei o aplicativo Nubank Clone
+    Quando aperto o botão Pagar
+    Então consigo visualizar suas funcionalidades
 
-CT02: Verificar se cada atalho no carrossel redireciona para a página correta
-    ${items}=    Get Webelements    ${ITEM}
-    :FOR    ${item}    IN    @{items}
-    \    ${expected_page}=    Get Attribute    ${item}    data-expected-page
-    \    Click Carousel Item And Verify Navigation    ${item}    ${expected_page}
+CT006 - O Usuario deve conseguir interagir com a seção de transferir
+    Dado que acessei o aplicativo Nubank Clone
+    Quando aperto o botão transferir
+    Então consigo vizualizar a página
+    E fazer uma transferência
 
-CT03: Verificar se os botões de navegação do carrossel (próximo e anterior) funcionam corretamente
-    Test Carousel Navigation Buttons
+CT007 - O usuário deve conseguir interagir com a seção de depositar
+    Dado que acessei o aplicativo Nubank Clone
+    Quando aperto o botão depositar
+    Então posso usar os recursos da seção de depósito
 
-CT04: Testar a responsividade do carrossel em diferentes tamanhos de tela (desktop, tablet, mobile)
-    Test Carousel Responsiveness    emulator-5554    Android    ${APP}
-    Test Carousel Responsiveness    iPad Simulator    iOS    ${APP}
-    Test Carousel Responsiveness    iPhone 12 Pro Max    iOS    ${APP}
+CT008 - Testar a funcionalidade do botão de seleção de método de depósito.
+   Dado que o usuário está logado no sistema bancário
+   Quando o usuário navega para a página de depósito
+   Entao o botão de seleção de método de depósito deve estar visível
 
-CT05: Verificar a funcionalidade dos botões de ação dentro de cada item do carrossel, se aplicável
-    ${items}=    Get Webelements    ${ITEM}
-    :FOR    ${item}    IN    @{items}
-    \    Verify Carousel Item Action Button    ${item}    ${ITEM_ACTION_BUTTON}
+CT009 - Verificar a funcionalidade do botão de confirmação de depósito.
+   Dado o usuário está logado no sistema bancário
+   Quando o usuário navega para a página de depósito
+   Então o botão de confirmação de depósito deve estar visível
+
+
+CT010 - O usuário deve conseguir interagir com a sessão de Empréstimo
+    Dado que acessei o aplicativo Nubank Clone
+    Quando aperto o botão Empréstimos
+    Então posso usar os recursos da seção de empréstimos
+
+CT011 - Verificar se o formulário de solicitação de empréstimo é exibido corretamente.
+   Dado que estou logado na minha conta de cliente
+   Quando eu navego para a página de solicitação de empréstimo
+   Então o formulário de solicitação de empréstimo deve estar visível
+
+
+CT0012 - Testar a funcionalidade do botão de cálculo de parcelas.
+   Dado que estou na página de solicitação de empréstimo
+   E o botão de cálculo de parcelas está visível
+   Quando eu preencho o valor do empréstimo, o prazo de pagamento e a finalidade do empréstimo
+   E eu clico no botão de cálculo de parcelas
+   Quando o sistema deve calcular o valor das parcelas corretamente
+   E o valor das parcelas deve ser exibido na página
+
+
+CT013 - Validar tela de Cartão de crédito
+    Dado que o usuário está na tela de Cartão de crédito
+    Quando o usuário verifica os elementos na tela
+    Então o usuário verifica se os botões estão corretos
+
+CT014 - Verificar se o saldo do cartão de crédito é exibido corretamente.
+    Dado que o usuário está logado no sistema bancário
+    Quando o usuário navega para a página de resumo do cartão de crédito
+    Então o saldo do cartão de crédito deve ser exibido corretamente
+
+
+
+
