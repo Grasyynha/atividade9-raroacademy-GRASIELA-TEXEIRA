@@ -16,7 +16,7 @@ Abrir App
     ...    platformVersion=${ANDROID_PLATFORM_VERSION}     appPackage=${APP_PACKAGE}    appActivity=${APP_ACTIVITY}
 
 Teardown
-    [Arguments]
+   
     Run Keyword If Test Failed    Capture Page Screenshot
     Close All Applications
 
