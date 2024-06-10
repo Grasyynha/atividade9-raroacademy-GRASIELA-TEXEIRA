@@ -1,8 +1,10 @@
 *** Settings ***
+
 Library    AppiumLibrary
 
-#Utils
+Resource    android/utils/commons.robot
 Resource    android/utils/config.robot
-#Pages
-Resource    android/page/.robot
 
+# Page Objects
+Resource    android/page/paginaPrincipal.robot
+Resource    android/page/./.robot
